@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Title</title>
+    <style>
+        body{
+            font-family: Helvetica, sans-serif;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        @keyframes fadeIn{
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1; /* Fade in to full opacity */
+            }
+        }
+
+        @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px); /* Move down by 20px */
+            }
+            to {
+            opacity: 1;
+            transform: translateY(0); /* Move up to the original position */
+            }
+        }
+
+        h1{
+            font-size: 30px;
+            margin: 0;
+            color: rgb(53, 236, 53);
+            padding-left: 50px;
+        }
+
+        header {
+            background-color: #000000;
+            color: #ebecef;
+            text-align: left;
+            padding: 20px 0;
+        }
+
+        .content-container {
+            max-width: 1080px;
+            text-align: left;
+            margin: 50px auto;
+            padding: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align items to the start of the cross axis */
+        }
+
+        .content-container l {
+            font-size: 50px;
+            color: #fff;
+        }
+
+        .additional-text {
+            font-size: 15px;
+            color: #00ff00;
+            margin-top: 10px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .subtext {
+            font-size: 12px;
+            color: #595b61;
+        }
+
+        .info-container {
+            width: 55%;
+        }
+
+        .code-container {
+            width: 40%;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .code {
+            color: #00ff00;
+            white-space: pre-wrap;
+        }
+
+        .hire-me-button {
+            display: inline-block;
+            background-color: #4be84b;
+            color: #000000;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .hire-me-button:hover {
+            background-color: #45a049;
+            transform: scale(1.1); /* Apply smooth scale transformation */
+        }
+        .bottom-animation {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        /* Apply styles to the animated element when it comes into view */
+        .bottom-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>mauri</h1>
+    </header>
+    <div class="content-container">
+        <div class="info-container">
+            <p>HI THERE👋, I'M</p>
+            <l>
+                <b>mauricio.</b>
+            </l>
+            <p class="additional-text">Java Programmer + Web Developer; 👨‍💻</p>
+            <p class="subtext">I'm a full-stack developer, excited to create amazing user experience;<br>
+            based in Miami, FL;</p>
+
+            <a class="hire-me-button" href="path/to/your/resume.pdf" target="_blank"><b>Hire Me</b></a>
+        </div>
+
+        <div class="code-container">
+            <pre class="code">
+<code>class Person {
+    String name;
+    String[] traits;
+    int age;
+    public Person() {
+        this.name = "Mauricio Cubillos";
+        this.traits = ["DESIGN", "DEV"];
+        this.age = new Date().getFullYear() - 2003;
+    }
+}</code>
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        // Use JavaScript to add a class after a delay
+        setTimeout(() => {
+            document.querySelector('.content-container').style.opacity = '0';
+            document.querySelector('.content-container').style.animation = 'fadeInUp 1s ease forwards';
+        }, 1000); // Set the delay in milliseconds
+    </script>
+    <div class="bottom-animation">
+        <p>This is a cool animation!</p>
+    </div>
+
+    <script>
+        // JavaScript to add a class when the animated element comes into view
+        window.addEventListener('scroll', () => {
+            const animatedElement = document.querySelector('.bottom-animation');
+            const elementPosition = animatedElement.getBoundingClientRect().top;
+
+            // Adjust the threshold as needed based on when you want the animation to trigger
+            const threshold = window.innerHeight * 0.8;
+
+            if (elementPosition < threshold) {
+                animatedElement.classList.add('visible');
+            }
+        });
+    </script>
+</body>
+</html>
